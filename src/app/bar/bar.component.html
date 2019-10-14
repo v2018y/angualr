@@ -1,0 +1,59 @@
+<div *ngIf="loading; else loaded;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Bar Item Table</h4>
+                        <p class="category">Here is listed the no of Bar item with Qty</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loaded>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Bar Item Table</h4>
+                        <p class="category">Here is listed the no of Bar item with Qty</p>
+                        <a style="float: right" href="bar/barAdd"><button type="button"
+                                class="btn btn-info btn-fill btn-wd">+ Add New Bar Item</button></a>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No.</th>
+                                    <th>Item Name</th>
+                                    <th>Item Qty</th>
+                                    <th>Item Size (ML)</th>
+                                    <th>Item Price</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of lstBarData;let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.itemName}}</td>
+                                    <td>{{item.itemQty}}</td>
+                                    <td>{{item.itemSize}}-ml</td>
+                                    <td>{{item.itemPrice}}</td>
+                                    <td><a href="bar/barUpdate/{{item.itemId}}">Update</a></td>
+                                    <td><a [routerLink]="" (click)="onDeleteClick(item.itemId)">Delete</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

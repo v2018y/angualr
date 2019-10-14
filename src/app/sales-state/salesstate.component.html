@@ -1,0 +1,52 @@
+<div *ngIf="loading; else loaded;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Sales Statement Table</h4>
+                        <p class="category">Loading ........</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loaded>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Sales Statement Table</h4>
+                        <p class="category">Here is listed the of Saleing Statement</p>
+                        <a style="float: right" href="SalesState/genarateStatement"><button type="button"
+                                class="btn btn-info btn-fill btn-wd">+ Genareate New Sales Statement</button></a>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of salesStateDummy;let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.date}}</td>
+                                    <td><a href="SalesState/sheet/{{item.date}}"><button type="button" class="btn btn-info btn-fill btn-wd">View Sheet</button></a></td>
+                                    <td><a href="SalesState/deleteSheet/{{item.date}}"><button type="button" class="btn btn-info btn-fill btn-wd">Delete Sheet</button></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

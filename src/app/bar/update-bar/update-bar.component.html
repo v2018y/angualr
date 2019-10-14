@@ -1,0 +1,68 @@
+<div *ngIf="loading; else loaded;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Update Bar Item Selected id</h4>
+                    </div>
+                    <div class="text-center">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loaded>
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Update Bar Item Selected id is {{id}}</h4>
+        </div>
+        <div class="content">
+            <form #barFrom="ngForm" (ngSubmit)="onUpdateSubmit()">
+                <div class="col-md">
+                   <div class="form-group">
+                    <label>Select Your Item Name</label>
+                     <select name="itemName" [(ngModel)]="userBar.itemName" class="form-control border-input"  >
+                      <option   *ngFor="let item of bottels" [(ngValue)]="item.id">{{item.title}}</option>
+                    </select>
+                 </div>
+                    <div class="form-group">
+                        <label>Bar Item Price</label>
+                        <input type="number" class="form-control border-input" name="itemQty"
+                            placeholder="Bar Item Price" [(ngModel)]="userBar.itemQty" />
+                    </div>
+                    <div class="form-group">
+                        <label>Bar Item Price</label>
+                        <input type="number" class="form-control border-input" name="itemPrice"
+                            placeholder="Bar Item Price" [(ngModel)]="userBar.itemPrice" />
+                    </div>
+                    <div class="form-group">
+                        <label>Select Your Item Type</label>
+                        <select name="itemType" [(ngModel)]="userBar.itemType" class="form-control border-input">
+                            <option value="Bear">Bear</option>
+                            <option value="Wine">Wine</option>
+                        </select>
+                    </div>
+                  <div class="form-group">
+                    <label>Select Your Item Size</label><br />
+                    <label><input type="radio" name="itemSize" [(ngModel)]="userBar.itemSize" value="1500"> 1500</label> &nbsp;
+                    <label><input type="radio" name="itemSize" [(ngModel)]="userBar.itemSize" value="1000"> 1000</label> &nbsp;
+                    <label><input type="radio" name="itemSize" [(ngModel)]="userBar.itemSize" value="750">750</label> &nbsp;
+                    <label><input type="radio" name="itemSize" [(ngModel)]="userBar.itemSize" value="650">650</label> &nbsp;
+                    <label><input type="radio" name="itemSize" [(ngModel)]="userBar.itemSize" value="500">500</label> &nbsp;
+                    <label><input type="radio" name="itemSize" [(ngModel)]="userBar.itemSize" value="375">375</label> &nbsp;
+                    <label><input type="radio" name="itemSize" [(ngModel)]="userBar.itemSize" value="330">330</label> &nbsp;
+                    <label><input type="radio" name="itemSize" [(ngModel)]="userBar.itemSize" value="325">325</label> &nbsp;
+                    <label><input type="radio" name="itemSize" [(ngModel)]="userBar.itemSize" value="180">180</label> 
+                </div>
+                </div>
+                <div class="text-center" style="padding-bottom:35px">
+                    <button type="submit" class="btn btn-info btn-fill btn-wd">Update Item Infomations</button>
+                    <a href="/bar"><button type="button" class="btn btn-info btn-fill btn-wd">Cancle</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>

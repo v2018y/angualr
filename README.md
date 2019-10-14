@@ -1,27 +1,43 @@
-# YogeshHotel
+# [Bar Managment Software In Angular](https://vany.is-best.net)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+Hi, this software is related to manage all the things off to bar. in the bar many things happen so we need to manage all those things.  when we doing that time we have faces more error and blockers. so our software will be managing the small things. related administrative task it manages. whatever your bar related administrative task is there, like maintain all bar items, generated the opening stock and also sales stock reports. so you can use our management software for that.
 
-## Development server
+This software made for those customers who don't understand highly Commerical software. those customers use our software. this software is made simple and clean understandable UI. he can easily use just like mobile applications, easily navigate and generates those reports. our software provides cloud-based solutions. so your data will be saved in the cloud.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Our Software Provide the Following Feature:-
+- cloud-based solutions.
+- your data save on cloud
+- save, update and delete bar items.
+- generate the opening stock for those bar items.
+- generate the sales stock for those bar items
+- you can export those reports in a *.xls file.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Links:
 
-## Build
++ [Live Preview](http://yogeshbar.is-best.net)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Quick start
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Quick start options:
 
-## Running end-to-end tests
+1. Contact US (http://vany.is-best.net).
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### What's included
 
-## Further help
+- Cloud based solutions.
+- Easy and Simple UI.
+- Data Security. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Social Media:
+
+Facebook: <https://www.facebook.com/vany>
+
+Google+: <https://plus.google.com/vany>
+
+Instagram: <https://instagram.com/vany>
+
+[CHANGELOG]: ./CHANGELOG.md
+
+[LICENSE]: ./LICENSE.md

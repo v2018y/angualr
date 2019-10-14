@@ -1,0 +1,64 @@
+<div *ngIf="loading; else loaded;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Opeing Statement Generation Component</h4>
+          </div>
+          <div class="text-center">
+            <div class="loader"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loaded>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Opeing Statement Generation Component</h4>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Select the Date *</label>
+                <input type="date" class="form-control border-input" name="createdAt" [(ngModel)]="userDate"
+                  placeholder="Bar Item Name" />
+              </div>
+            </div>
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Item Id</th>
+                  <th>Item Name</th>
+                  <th>Item Qty</th>
+                  <th>Item Size (ML)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of lstBarData;let i=index">
+                  <td>{{i+1}}</td>
+                  <td>{{item.itemName}}</td>
+                  <td>{{item.itemQty}}</td>
+                  <td>{{item.itemSize}}-ml</td>
+                  <td><input type="checkbox" ng-model="postOpenStateData" (click)="changeValue(item)" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-center" style="padding-bottom:35px">
+            <button type="button" (click)="onSubmitPostData()" class="btn btn-info btn-fill btn-wd">Genratrate Opening
+              Statement</button>
+            <a href="/OpenState"><button type="button" class="btn btn-info btn-fill btn-wd">Cancle</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

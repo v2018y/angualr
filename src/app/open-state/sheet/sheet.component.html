@@ -1,0 +1,55 @@
+<div *ngIf="loading; else loaded;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Sheet </h4>
+          </div>
+          <div class="text-center">
+            <div class="loader"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loaded>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Opening Stock Sheet for <b>{{userDate}}</b></h4>
+            <button  style="float: right;padding:10px;"(click)="exportAsExcelFile()" type="button" class="btn btn-info btn-fill btn-wd">+ Export Excel</button>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <table id="OpenState" class="table" >
+              <thead>
+                 <tr ><th colspan="10" style="text-align:center;"><b>OPENING BALANCE</b></th></tr>
+                <tr>
+                  <th></th>
+                  <th colspan="6"><b>Beer</b></th>
+                  <th colspan="3"><b>Wine</b></th>
+                </tr>
+                <tr>
+                 <th><b>Item Name</b></th>
+                  <th *ngFor="let item of itemSizeBeer"><b>{{item}}</b></th>
+                  <th *ngFor="let item of itemSizeWine"><b>{{item}}</b></th>
+                </tr>
+              </thead>
+                <tbody *ngFor="let item of itemNameArray" >
+                <tr innerHTML={{item}}>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-center" style="padding-bottom:35px">
+            <a href="/OpenState"><button type="button" class="btn btn-info btn-fill btn-wd">Go Back</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+

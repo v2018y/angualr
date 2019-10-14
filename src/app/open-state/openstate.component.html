@@ -1,0 +1,52 @@
+<div *ngIf="loading; else loaded;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Openign Statement Table</h4>
+                        <p class="category">Loading ........</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loaded>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Openign Statement Table</h4>
+                        <p class="category">Here is listed the of Opening Statement</p>
+                        <a style="float: right" href="OpenState/genarateStatement"><button type="button"
+                                class="btn btn-info btn-fill btn-wd">+ Genareate New Opening Statement</button></a>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of openStateDummy;let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.date}}</td>
+                                    <td><a href="OpenState/sheet/{{item.date}}"><button type="button" class="btn btn-info btn-fill btn-wd">View Sheet</button></a></td>
+                                    <td><a href="OpenState/deleteSheet/{{item.date}}"><button type="button" class="btn btn-info btn-fill btn-wd">Delete Sheet</button></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

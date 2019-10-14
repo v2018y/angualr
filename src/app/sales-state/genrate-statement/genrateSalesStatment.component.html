@@ -1,0 +1,79 @@
+<div *ngIf="loading; else loaded;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Sales Statement Generation</h4>
+          </div>
+          <div class="text-center">
+            <div class="loader"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loaded>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Sales Statement Generation</h4>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Select Open Stock the Date *</label>
+                <input type="date" class="form-control border-input" name="createdAt" [(ngModel)]="userDate" (ngModelChange)="getSalesStateData(userDate)" placeholder="Choose Date" />
+              </div>
+              <div *ngIf="loadTabel;" class="form-group">
+                <label>Select Sales Stock the Date *</label>
+                <input type="date" class="form-control border-input" name="createdAt" [(ngModel)]="userSelectDate"  placeholder="Choose Sales Stock Date" />
+              </div>
+            </div>
+              <table id="OpenState" *ngIf="loadTabel;" class="table">
+              <thead>
+              <tr ><th colspan="10" style="text-align:center;"><b>OPENING BALANCE</b></th></tr>
+                <tr>
+                <th></th>
+                  <th colspan="6"><b>Beer</b></th>
+                  <th colspan="3"><b>Wine</b></th>
+                </tr>
+                <tr>
+                 <th><b>Item Name</b></th>
+                  <th *ngFor="let item of itemSizeBeer"><b>{{item}}</b></th>
+                  <th *ngFor="let item of itemSizeWine"><b>{{item}}</b></th>
+                </tr>
+              </thead>
+              
+                <tbody>
+                <tr *ngFor="let item of itemNameArray" >
+                  <td>{{item.name}}</td>
+                  <td>{{item["1500"]}}<div *ngIf="item['1500'] && userSelectDate"><a (click)="SalesInputMag(item,'1500',item['1500'])">EnterSales</a></div></td>
+                  <td>{{item["1000"]}}<div *ngIf="item['1000'] && userSelectDate"><a (click)="SalesInputMag(item,'1000',item['1000'])">EnterSales</a></div></td>
+                  <td>{{item["650"]}}<div *ngIf="item['650'] && userSelectDate"><a (click)="SalesInputMag(item,'650',item[650])">EnterSales</a></div></td>
+                  <td>{{item["500"]}}<div *ngIf="item['500'] && userSelectDate"><a (click)="SalesInputMag(item,'500',item['500'])">EnterSales</a></div></td>
+                  <td>{{item["330"]}}<div *ngIf="item['330'] && userSelectDate "><a (click)="SalesInputMag(item,'330',item['330'])">EnterSales</a></div></td>
+                  <td>{{item["325"]}}<div *ngIf="item['325'] && userSelectDate"><a (click)="SalesInputMag(item,'325',item['325'])">EnterSales</a></div></td>
+                  <td>{{item["750"]}}<div *ngIf="item['750'] && userSelectDate"><a (click)="SalesInputMag(item,'750',item['750'])">EnterSales</a></div></td>
+                  <td>{{item["375"]}}<div *ngIf="item['375'] && userSelectDate"><a (click)="SalesInputMag(item,'375',item['375'])">EnterSales</a></div></td>
+                  <td>{{item["180"]}}<div *ngIf="item['180'] && userSelectDate"><a (click)="SalesInputMag(item,'180',item['180'])">EnterSales</a></div></td>
+                </tr>
+              </tbody>
+            
+            </table>
+          </div>
+          <div class="text-center"style="padding-bottom:35px">
+            <button  *ngIf="userSelectDate"type="button" (click)="onSubmitPostData()" class="btn btn-info btn-fill btn-wd">Genratrate Sales
+              Statement</button>
+            <a href="/SalesState"><button type="button" class="btn btn-info btn-fill btn-wd">Cancle</button></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+{{itemSalesStateData | json}}
